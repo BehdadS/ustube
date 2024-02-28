@@ -11,24 +11,24 @@ import mkbhdIcon from './images/mkbhd.jpeg';
 import mrbeastIcon from './images/mrbeast.jpeg';
 import teslaIcon from './images/tesla.jpeg';
 import showMoreIcon from './images/down.svg';
-
+//Logo
 function Logo(props){
   const logoPic = <img className="logo" src={logo} alt='logo'/>
   return logoPic;
 }
-
+//Menu button
 function Menu(props){
   const burgurBtn = () => {
     console.log('Click');
     const navElement = document.getElementById("nav");
-    // Toggle a CSS class, for example
+    // Toggle the menu
     navElement.classList.toggle("show-menu");
   }
 
   const menuBtn = <img className="menu" src={menu} alt='logo' onClick={() => burgurBtn()}/>;
   return menuBtn;
 }
-
+//Search Button
 function SearchBtn(props){
   const menuBtn = <img className="searchbtn" src={searchbtn} alt='searchbtn'/>;
   return menuBtn;
@@ -42,7 +42,7 @@ class Main extends Component {
       isLoaded: false,
     }
   }
-  
+  //Calling the API
   componentDidMount(){
     fetch('https://gist.githubusercontent.com/poudyalanil/ca84582cbeb4fc123a13290a586da925/raw/14a27bd0bcd0cd323b35ad79cf3b493dddf6216b/videos.json')
     .then((res) => res.json())
@@ -56,7 +56,7 @@ class Main extends Component {
   
   render(){
     var{isLoaded, items} = this.state;
-
+    //Checking if the API is loaded
     if(!isLoaded){
       return <div>Loading..</div>
     }
